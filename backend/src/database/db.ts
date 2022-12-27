@@ -6,14 +6,15 @@ const connectDB = async () => {
   await mongoose.connect(process.env.MONGODB_URI!);
 };
 
-const db = mongoose.connection;
+const dbConnection = mongoose.connection;
 
-db.on('error', (error) => {
+dbConnection.on('error', (error) => {
   console.log(error);
 });
 
-db.once('connected', () => {
+dbConnection.once('connected', () => {
   console.log('Database connected');
 });
 
 export default connectDB;
+export { dbConnection };
