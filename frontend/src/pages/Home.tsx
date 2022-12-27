@@ -3,7 +3,7 @@ import Form from '../components/Form';
 
 const Home = () => {
   return (
-    <div className="vh-100 d-flex align-items-center justify-content-center">
+    <div id="home-container">
       <Form />
     </div>
   );

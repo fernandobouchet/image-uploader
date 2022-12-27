@@ -1,6 +1,6 @@
 const Card = () => {
   return (
-    <div>
+    <div id="card">
       <h2>Upload Successfully!</h2>
       <img src="" alt="" />
       <div>
