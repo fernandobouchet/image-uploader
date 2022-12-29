@@ -4,7 +4,7 @@ import image from '../assets/image.svg';
 const Form = () => {
   const [dragActive, setDragActive] = useState(false);
 
-  const handleDrag = (e: any) => {
+  const handleDrag = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (e.type === 'dragenter' || e.type === 'dragover') {
@@ -14,7 +14,7 @@ const Form = () => {
     }
   };
 
-  const handleDrop = (e: any) => {
+  const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
@@ -23,7 +23,7 @@ const Form = () => {
     }
   };
 
-  const handleUpload = (data: any) => {
+  const handleUpload = (data: FileList) => {
     console.log(data[0]);
   };
 
@@ -52,7 +52,7 @@ const Form = () => {
             type="file"
             id="input-file-label"
             accept="image/jpeg, image/jpg, image/png"
-            onChange={(e) => handleUpload(e.target.files)}
+            onChange={(e) => handleUpload(e.target.files!)}
           />
         </label>
       </form>
