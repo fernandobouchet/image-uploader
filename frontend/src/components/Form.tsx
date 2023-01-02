@@ -1,31 +1,27 @@
-import { useState } from 'react';
 import image from '../assets/image.svg';
 import { uploadImage } from '../services/imageService';
+import * as React from 'react';
 
-const Form = () => {
-  const [dragActive, setDragActive] = useState(false);
+type Props = {
+  setimageUrl: React.Dispatch<React.SetStateAction<undefined | string>>;
+};
 
+const Form: React.FC<Props> = ({ setimageUrl }) => {
   const handleDrag = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    if (e.type === 'dragenter' || e.type === 'dragover') {
-      setDragActive(true);
-    } else if (e.type === 'dragleve') {
-      setDragActive(false);
-    }
   };
 
   const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    setDragActive(false);
     if (e.dataTransfer.files) {
       handleUpload(e.dataTransfer.files);
     }
   };
 
-  const handleUpload = (data: FileList) => {
-    uploadImage(data[0]);
+  const handleUpload = async (data: FileList) => {
+    setimageUrl(await uploadImage(data[0]));
   };
 
   return (
@@ -42,7 +38,7 @@ const Form = () => {
           onDrop={handleDrop}
         >
           <div id="drop-img-container">
-            <img src={image} alt="" />
+            <img src={image} alt="" draggable="false" />
             <p>Drag & Drop your image here</p>
           </div>
         </label>
