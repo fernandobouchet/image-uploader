@@ -1,8 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
-  font-family: 'Noto Sans';
+  font-family: 'Poppins', sans-serif;
   background-color: #fafafb;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
+  margin-bottom: 0;
 }
 
 #home-container {
@@ -13,7 +22,7 @@ body {
   height: 100vh;
 }
 
-#form {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +32,20 @@ body {
   background: #ffffff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+}
+
+.form-p {
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: -0.035em;
+  color: #828282;
+}
+
+.form-p-sub {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.035em;
+  color: #bdbdbd;
 }
 
 #input-label {
@@ -49,8 +72,10 @@ input[type='file'] {
 }
 
 .file-upload-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #ccc;
-  display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
   width: 101px;
@@ -58,12 +83,61 @@ input[type='file'] {
   background: #2f80ed;
   border-radius: 8px;
 
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   text-align: center;
   letter-spacing: -0.035em;
 
   color: #ffffff;
+}
+
+.card-img {
+  border-radius: 12px;
+}
+
+.link-container {
+  display: flex;
+  position: relative;
+}
+
+.link-input {
+  width: 340px;
+  height: 35px;
+  padding-left: 10px;
+
+  background: #f6f8fb;
+
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.link-button {
+  cursor: pointer;
+  position: absolute;
+  width: 74px;
+  height: 30px;
+
+  background: #2f80ed;
+  border: none;
+  border-radius: 8px;
+
+  font-size: 8px;
+  line-height: 12px;
+
+  text-align: center;
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+
+  top: 0;
+  right: 10px;
+  z-index: 2;
+  top: 5px;
+  transform: translateX(5px);
+}
+
+.check-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

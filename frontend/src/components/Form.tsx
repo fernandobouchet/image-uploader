@@ -1,6 +1,5 @@
 import image from '../assets/image.svg';
 import { uploadImage } from '../services/imageService';
-import * as React from 'react';
 
 type Props = {
   setimageUrl: React.Dispatch<React.SetStateAction<undefined | string>>;
@@ -26,9 +25,9 @@ const Form: React.FC<Props> = ({ setimageUrl }) => {
 
   return (
     <>
-      <form id="form">
+      <form className="container">
         <h2>Upload your image</h2>
-        <p>File should be Jpeg, Png,...</p>
+        <p className="form-p">File should be Jpeg, Png,...</p>
         <label
           id="input-label"
           htmlFor="input-file"
@@ -39,10 +38,10 @@ const Form: React.FC<Props> = ({ setimageUrl }) => {
         >
           <div id="drop-img-container">
             <img src={image} alt="" draggable="false" />
-            <p>Drag & Drop your image here</p>
+            <p className="form-p-sub">Drag & Drop your image here</p>
           </div>
         </label>
-        <p>Or</p>
+        <p className="form-p-sub">Or</p>
         <label htmlFor="input-file-label" className="file-upload-button">
           Choose a file
           <input
