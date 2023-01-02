@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import image from '../assets/image.svg';
+import { uploadImage } from '../services/imageService';
 
 const Form = () => {
   const [dragActive, setDragActive] = useState(false);
@@ -24,7 +25,7 @@ const Form = () => {
   };
 
   const handleUpload = (data: FileList) => {
-    console.log(data[0]);
+    uploadImage(data[0]);
   };
 
   return (
