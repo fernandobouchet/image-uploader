@@ -14,8 +14,15 @@ const Form: React.FC<Props> = ({ setimageUrl }) => {
   const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    if (e.dataTransfer.files) {
+
+    if (
+      (e.dataTransfer.files && e.dataTransfer.files[0].type === 'image/jpeg') ||
+      e.dataTransfer.files[0].type === 'image/jpg' ||
+      e.dataTransfer.files[0].type === 'image/png'
+    ) {
       handleUpload(e.dataTransfer.files);
+    } else {
+      alert('File must be image/jpeg, image/jpg or image/png');
     }
   };
 
