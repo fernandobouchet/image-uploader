@@ -37,7 +37,7 @@ const Form: React.FC<Props> = ({ setimageUrl }) => {
         <p className="form-p">File should be Jpeg, Png,...</p>
         <label
           id="input-label"
-          htmlFor="input-file"
+          htmlFor="input-file-label"
           onDragEnter={handleDrag}
           onDragLeave={handleDrag}
           onDragOver={handleDrag}

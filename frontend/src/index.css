@@ -49,6 +49,7 @@ h2 {
 }
 
 #input-label {
+  cursor: pointer;
   display: flex;
   width: 338px;
   height: 218.9px;
@@ -58,6 +59,10 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#input-label:hover {
+  background: #f2f2f2;
 }
 
 #drop-img-container {
