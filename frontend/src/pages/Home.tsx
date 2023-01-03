@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <div id="home-container">
-      {!imageUrl ? (
+      {!imageUrl && imageUrl !== 'loading' ? (
         <Form setimageUrl={setimageUrl} />
       ) : (
         <Card imageUrl={imageUrl} />

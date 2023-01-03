@@ -12,6 +12,8 @@ const uploadImage = async (file: File) => {
     });
     if (result.status === 200) {
       return `${API_URL}/${result.data.imageId}`;
+    } else {
+      console.log('Unknow error');
     }
   } catch (error) {
     console.log(error);

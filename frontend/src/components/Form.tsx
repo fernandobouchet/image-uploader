@@ -14,7 +14,6 @@ const Form: React.FC<Props> = ({ setimageUrl }) => {
   const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     e.stopPropagation();
-
     if (
       (e.dataTransfer.files && e.dataTransfer.files[0].type === 'image/jpeg') ||
       e.dataTransfer.files[0].type === 'image/jpg' ||
@@ -27,6 +26,7 @@ const Form: React.FC<Props> = ({ setimageUrl }) => {
   };
 
   const handleUpload = async (data: FileList) => {
+    setimageUrl('loading');
     setimageUrl(await uploadImage(data[0]));
   };
 
