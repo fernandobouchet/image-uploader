@@ -11,7 +11,13 @@ const Card: React.FC<Props> = ({ imageUrl }) => {
         <img src={check} alt="" />
         <h2>Upload Successfully!</h2>
       </div>
-      <img className="card-img" src={imageUrl} alt="" width={340} />
+      <img
+        className="card-img"
+        src={imageUrl}
+        alt=""
+        width={340}
+        height={225}
+      />
       <div className="link-container">
         <input
           className="link-input"

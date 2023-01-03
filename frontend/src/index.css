@@ -89,10 +89,12 @@ input[type='file'] {
   letter-spacing: -0.035em;
 
   color: #ffffff;
+  transition: 0.3s;
 }
 
 .card-img {
   border-radius: 12px;
+  object-fit: contain;
 }
 
 .link-container {
@@ -101,14 +103,20 @@ input[type='file'] {
 }
 
 .link-input {
-  width: 340px;
+  width: 256px;
   height: 35px;
+  padding: 0;
   padding-left: 10px;
 
   background: #f6f8fb;
 
   border: 1px solid #e0e0e0;
   border-radius: 8px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 74px;
 }
 
 .link-button {
@@ -130,10 +138,16 @@ input[type='file'] {
   color: #ffffff;
 
   top: 0;
-  right: 10px;
+  right: 8px;
   z-index: 2;
-  top: 5px;
+  top: 4px;
   transform: translateX(5px);
+  transition: 0.3s;
+}
+
+.file-upload-button:hover,
+.link-button:hover {
+  opacity: 0.9;
 }
 
 .check-success {
