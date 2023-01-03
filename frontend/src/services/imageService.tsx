@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://image-uploader-sgfx.onrender.com';
 
 const uploadImage = async (file: File) => {
   const formData = new FormData();
