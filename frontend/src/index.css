@@ -150,6 +150,10 @@ input[type='file'] {
   transition: 0.3s;
 }
 
+.link-button-true {
+  background: #219653;
+}
+
 .file-upload-button:hover,
 .link-button:hover {
   opacity: 0.9;

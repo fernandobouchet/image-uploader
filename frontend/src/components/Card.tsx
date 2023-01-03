@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import check from '../assets/check.svg';
+import CopyLinkButton from './CopyLinkButton';
 import Loader from './Loader';
 
 type Props = {
@@ -39,14 +40,7 @@ const Card: React.FC<Props> = ({ imageUrl }) => {
               defaultValue={imageUrl}
               disabled
             />
-            <button
-              className="link-button"
-              onClick={() => {
-                navigator.clipboard.writeText(imageUrl);
-              }}
-            >
-              Copy link
-            </button>
+            <CopyLinkButton imageUrl={imageUrl} />
           </div>
         </div>
       ) : (
