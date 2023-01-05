@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 type Props = {
-  imageUrl: string;
+  imageId: string;
 };
 
-const CopyLinkButton: React.FC<Props> = ({ imageUrl }) => {
+const CopyLinkButton: React.FC<Props> = ({ imageId }) => {
   const [copied, setCopied] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ const CopyLinkButton: React.FC<Props> = ({ imageUrl }) => {
       className={copied ? 'link-button link-button-true' : 'link-button'}
       onClick={() => {
         setCopied(true);
-        navigator.clipboard.writeText(imageUrl);
+        navigator.clipboard.writeText(`${imageId}`);
       }}
     >
       {copied ? 'Copied' : 'Copy link'}

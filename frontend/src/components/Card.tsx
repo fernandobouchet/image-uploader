@@ -40,7 +40,7 @@ const Card: React.FC<Props> = ({ imageUrl }) => {
               defaultValue={imageUrl}
               disabled
             />
-            <CopyLinkButton imageUrl={imageUrl} />
+            <CopyLinkButton imageId={imageUrl} />
           </div>
         </div>
       ) : (
