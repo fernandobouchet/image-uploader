@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Card from '../components/Card';
+import Footer from '../components/Footer';
 import Form from '../components/Form';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       ) : (
         <Card imageUrl={imageUrl} />
       )}
+      <Footer />
     </div>
   );
 };
