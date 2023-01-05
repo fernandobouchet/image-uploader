@@ -1,37 +1,38 @@
 import { Request, Response } from 'express';
-import { mongo } from 'mongoose';
-import { dbConnection } from '../database/db';
+import ImageModel from '../models/imageModel';
 
-const uploadImage = async (req: any, res: Response) => {
-  const imageFile = (req as any).file;
-  res.send({ imageId: imageFile.id });
+const saveImage = async (req: Request, res: Response) => {
+  if (req.file) {
+    try {
+      const editedImage = new ImageModel({
+        name: req.file.originalname,
+        data: req.file.buffer,
+        contentType: req.file.mimetype,
+      });
+      await editedImage.save();
+      return res.status(200).send({ imageId: editedImage._id });
+    } catch (error) {
+      return res.status(400).send({ error: (error as Error).message });
+    }
+  } else {
+    return res.status(404).send('File not found');
+  }
 };
 
 const getImage = async (req: Request, res: Response) => {
-  const imageId = req.params.id;
-
-  if (!mongo.ObjectId.isValid(imageId)) {
-    res.status(400).send('Invalid image ID');
-    return;
+  if (req.params.id === 'favicon.ico') {
+    return res.status(404);
   }
 
-  const objectId = new mongo.ObjectId(imageId);
+  const image = await ImageModel.findById(req.params.id);
 
-  const bucket = new mongo.GridFSBucket(dbConnection.db);
-
-  const cursor = bucket.find({ _id: objectId });
-
-  for await (const file of cursor) {
-    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-      const readstream = bucket.openDownloadStream(file._id);
-      readstream.pipe(res);
-      return;
-    } else {
-      res.status(404).send('Not an image');
-      return;
-    }
+  if (!image) {
+    return res.status(400).send('Invalid not found');
   }
-  res.status(404).send('Not found');
+  return res
+    .status(200)
+    .set('Content-Type', `${image.contentType}`)
+    .send(image.data);
 };
 
-export { uploadImage, getImage };
+export { saveImage, getImage };
